@@ -1,17 +1,22 @@
 import React from "react";
-import { View, Text, StyleSheet, ImageBackground } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  Dimensions,
+} from "react-native";
 import StyleButton from "./styleButton";
 
-const CarItem = ({ name, tagline, image }) => {
+const CarItem = ({ name, tagline, image, taglineCTA }) => {
   return (
     <View style={styles.carContainer}>
-      <ImageBackground
-        source={require("../../assets/images/ModelX.jpeg")}
-        style={styles.backgroudImage}
-      />
+      <ImageBackground source={image} style={styles.backgroudImage} />
       <View style={styles.titleContainer}>
-        <Text style={styles.title}>Model S</Text>
-        <Text style={styles.subTitle}>Starting at $69,420</Text>
+        <Text style={styles.title}>{name}</Text>
+        <Text style={styles.subTitle}>
+          {tagline} <Text style={styles.subTitleCTA}>{taglineCTA}</Text>
+        </Text>
       </View>
       <View style={styles.buttonContainer}>
         <StyleButton type="primary" content="Custom Order" onPress={() => {}} />
@@ -28,7 +33,7 @@ const CarItem = ({ name, tagline, image }) => {
 const styles = StyleSheet.create({
   carContainer: {
     width: "100%",
-    height: "100%",
+    height: Dimensions.get("window").height,
   },
   titleContainer: {
     marginTop: "30%",
@@ -53,6 +58,9 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 50,
     width: "100%",
+  },
+  subTitleCTA: {
+    textDecorationLine: "underline",
   },
 });
 
