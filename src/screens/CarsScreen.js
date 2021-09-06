@@ -1,10 +1,9 @@
 import React from "react";
 import {
   View,
-  Text,
+  
   StyleSheet,
-  ImageBackground,
-  StatusBar,
+  
   FlatList,
   Dimensions,
 } from "react-native";
